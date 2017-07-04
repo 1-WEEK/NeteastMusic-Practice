@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>某音乐的练习</title>
+  <link rel="stylesheet" href="assert/css/index.css">
+
 </head>
 
 <body>
-  <header>
+  <header class="top-bar">
     <svg class="svg-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 50" data-reactid="6">
       <g fill="#fff" data-reactid="7">
         <path d="m36.37 14.412c-2.115-1.367-4.707-2.117-7.377-2.251l-.595-2.174.018.021c-.023-.064-.043-.127-.063-.189l-.176-.643c-.406-1.86.333-2.748.713-3.067.064-.048.131-.097.204-.145 1.74-1.154 4.218.695 4.357.804 1.1 1.055 3.112 1.315 4.198.236 1.098-1.091.836-3.132-.261-4.223-1.708-1.698-6.95-4.426-11.41-1.467-4.01 2.659-4.09 6.402-3.431 8.565l.8 2.927c-1.339.383-2.624.933-3.797 1.647-4.391 2.676-6.594 7.192-6.04 12.391.564 5.335 4.575 9.208 9.536 9.208 5.267 0 9.551-4.262 9.551-9.501-.071-1.251-.057-1.236-.226-2.354-.165-1.091-1.783-6.218-1.783-6.218.994.229 1.923.602 2.725 1.12 9.06 5.856 5.289 15.176 5.118 15.583-2.495 5.954-7.934 9.509-14.923 9.754-4.555.16-8.919-1.535-12.289-4.772-3.554-3.41-5.591-8.189-5.591-13.11 0-7.414 4.687-14.14 11.662-16.749 1.453-.542 2.625-2.087 1.822-3.881-.632-1.41-2.344-1.895-3.796-1.352-9.156 3.418-15.307 12.251-15.307 21.981 0 6.43 2.664 12.675 7.308 17.14 4.283 4.111 9.793 6.349 15.595 6.349.264 0 .529-.004.793-.014 9.142-.32 16.585-5.251 19.9-13.164 2.071-4.807 3.225-15.684-7.231-22.445m-9.396 12.139c0 2.157-1.764 3.911-3.933 3.911-2.407 0-3.734-2.179-3.949-4.204-.408-3.861 1.619-5.959 3.392-7.04.719-.438 1.509-.781 2.335-1.029 0 0 1.912 6.05 2.061 6.99.164 1.037.094 1.372.094 1.372"
@@ -53,112 +55,171 @@
         <path d="m244.15 44.12c-.369.664 0 .904 0 .904 3.641-.994 8.617-6.405 9.83-15h-5.203c0 0-1.152 7.844-4.627 14.1" data-reactid="32"></path>
       </g>
     </svg>
-    <a href="" class="download"></a>
+    <a href="" class="download borders">下载 APP</a>
   </header>
-  <nav class="topbar">
-    <ol>
-      <li>推荐音乐</li>
-      <li>热歌榜</li>
-      <li>搜索</li>
-    </ol>
+  <nav class="site-nav borders">
+    <li>
+      <div class="nav-text active">推荐音乐</div>
+    </li>
+    <li>
+      <div class="nav-text">热歌榜</div>
+    </li>
+    <li>
+      <div class="nav-text">搜索</div>
+    </li>
   </nav>
   <div class="container">
-    <section class="recommend">
-      <h2>推荐歌单</h2>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/F4Eo_g1_y7PHbZRN6iPLMQ==/109951162962086676.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">524 万</div>
+    <div class="recommend">
+      <section class="recommend-playlist">
+        <h2>推荐歌单</h2>
+        <div class="playlists">
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/F4Eo_g1_y7PHbZRN6iPLMQ==/109951162962086676.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>524 万</div>
+            </div>
+            <p class="title">2017 上半年最热新歌 TOP50</p>
+          </a>
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/5apBzmEtHcL46UcDc2FVDQ==/109951162955511967.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>13 万</div>
+            </div>
+            <p class="title">『动漫原声』优哉游哉的日常</p>
+          </a>
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/AFg1zpEvW-G-1O8QSayf5A==/3385396311225272.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>4 万</div>
+            </div>
+            <p class="title">【原声】银魂 OST 收录</p>
+          </a>
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/bPcekbB9pn2DjDPAad52WA==/3236962234864562.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>79 万</div>
+            </div>
+            <p class="title">【Britpop】百首英伦摇滚精选</p>
+          </a>
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/-_h1sSX0Ke_cmtFYVAIOWw==/3394192412839421.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>3 万</div>
+            </div>
+            <p class="title">HIPA ⁵ 爵士说唱，天生一对</p>
+          </a>
+          <a class="playlist">
+            <div class="playlist-cover">
+              <img src="//p1.music.126.net/Spxwdxd6IFiB0xuoQalAlg==/3297435376282212.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
+                alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xlink:href="#icon-erji"></use>
+                </svg>32 万</div>
+            </div>
+            <p class="title">盘点动漫中の那些灵魂歌手</p>
+          </a>
         </div>
-        <p class="title">2017 上半年最热新歌 TOP50</p>
-      </div>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/5apBzmEtHcL46UcDc2FVDQ==/109951162955511967.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">13 万</div>
+      </section>
+      <section class="latest">
+        <h2>最新音乐</h2>
+        <div class="latest-list">
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">
+              <svg class="icon icon-sq">
+                <use xlink:href="#icon-sq"></use>
+              </svg>Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">コイセヨワタシ。instrumental</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
+          <a href="" class="latest-song borders">
+            <p class="song-title">ペールムーンがゆれてる</p>
+            <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
+            <svg class="icon">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </a>
         </div>
-        <p class="title">『动漫原声』优哉游哉的日常</p>
-      </div>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/AFg1zpEvW-G-1O8QSayf5A==/3385396311225272.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">4 万</div>
-        </div>
-        <p class="title">【原声】银魂 OST 收录</p>
-      </div>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/bPcekbB9pn2DjDPAad52WA==/3236962234864562.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">79 万</div>
-        </div>
-        <p class="title">【Britpop】百首英伦摇滚精选</p>
-      </div>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/-_h1sSX0Ke_cmtFYVAIOWw==/3394192412839421.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">3 万</div>
-        </div>
-        <p class="title">HIPA ⁵ 爵士说唱，天生一对</p>
-      </div>
-      <div class="playlist">
-        <div class="playlist-cover">
-          <img src="//p1.music.126.net/Spxwdxd6IFiB0xuoQalAlg==/3297435376282212.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp"
-            alt="">
-          <div class="playlist-num">32 万</div>
-        </div>
-        <p class="title">盘点动漫中の那些灵魂歌手</p>
-      </div>
-    </section>
-    <section class="latest">
-      <h2>最新音乐</h2>
-      <div class="latest-list">
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-        <a href="" class="latest-song">
-          <p class="song-title">ペールムーンがゆれてる</p>
-          <p class="song-info">Leola-コイセヨワタシ。/ Mr.Right</p>
-        </a>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
   <footer>
     <div class="footer-wrapper">
@@ -195,9 +256,10 @@
         </svg>
       </div>
       <div class="open-app">打开 APP，发现更多好音乐</div>
-      <p class="copyright">网易公司版权所有 ©1997-2017   杭州乐读科技有限公司运营</p>
+      <p class="copyright">网易公司版权所有 ©1997-2017 杭州乐读科技有限公司运营</p>
     </div>
   </footer>
+  <script src="//at.alicdn.com/t/font_vx6j6djfxb3mcxr.js"></script>
 </body>
 
 </html>
