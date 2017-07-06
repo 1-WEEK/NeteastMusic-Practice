@@ -1,0 +1,32 @@
+// border
+.borders::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  content: '';
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+// more ppi
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .borders::after {
+    width: 150%;
+    height: 150%;
+
+    transform: scale(.666666);
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .borders::after {
+    width: 200%;
+    height: 200%;
+
+    transform: scale(.5);
+  }
+}

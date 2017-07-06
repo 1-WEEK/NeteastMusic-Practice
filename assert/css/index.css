@@ -80,16 +80,6 @@ body {
     display: inline-block;
     padding: 0 5px; }
 
-.borders::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: '';
-  transform-origin: top left;
-  pointer-events: none; }
-
 .container {
   padding-top: 28.13vw; }
   .container > div {
@@ -208,8 +198,8 @@ footer {
   margin-top: 4px;
   padding-top: 16.9%;
   text-align: center;
-  background: url(//s3.music.126.net/m/s/img/recommand_bg_2x.png?d045fafc60e017b653f8065a87496922) no-repeat;
-  background-size: cover; }
+  background: url("//s3.music.126.net/m/s/img/recommand_bg_2x.png?d045fafc60e017b653f8065a87496922") no-repeat;
+  background-size: contain; }
   footer .logo .logosvg {
     display: block;
     width: 61.3vw;
@@ -227,6 +217,48 @@ footer {
     color: #888;
     font-size: 12px;
     line-height: 16px; }
+
+.popular .popular-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 38.9vw;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  background: url("//ooo.0o0.ooo/2017/07/06/595df98e03c6a.jpg");
+  background-size: contain;
+  justify-content: center; }
+  .popular .popular-banner .update-time {
+    margin-top: 10px;
+    transform: scale(0.91);
+    transform-origin: left top;
+    font-size: 12px; }
+  .popular .popular-banner .update-time,
+  .popular .popular-banner .hot-logo {
+    position: relative;
+    z-index: 2; }
+  .popular .popular-banner .hot-logo {
+    width: 142px;
+    height: 67px; }
+  .popular .popular-banner::after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: " ";
+    background-color: rgba(0, 0, 0, 0.2); }
+
+.borders::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  transform-origin: top left;
+  pointer-events: none; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
   .borders::after {

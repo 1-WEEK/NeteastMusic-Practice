@@ -1,0 +1,36 @@
+/*header*/
+
+.top-bar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+
+  display: flex;
+
+  width: 100%;
+  height: 17.53vw;
+  padding: 0 2.74vw;
+
+  background-color: $red;
+
+  justify-content: space-between;
+  align-items: center;
+  .svg-logo {
+    width: 37.86vw;
+  }
+  .download {
+    position: relative;
+
+    height: 30px;
+    padding: 0 10px;
+
+    color: white;
+
+    font-size: 15px;
+    line-height: 30px;
+    &::after {
+      border: 1px solid white;
+      border-radius: 37.5%/100%;
+    }
+  }
+}

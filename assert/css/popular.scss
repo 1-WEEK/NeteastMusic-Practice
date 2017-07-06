@@ -1,0 +1,47 @@
+// popular
+.popular {
+  .popular-banner {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 38.9vw;
+    padding-left: 20px;
+
+    color: hsla(0, 0%, 100%, .8);
+    background: url('//ooo.0o0.ooo/2017/07/06/595df98e03c6a.jpg');
+    background-size: contain;
+
+    justify-content: center;
+    .update-time {
+      margin-top: 10px;
+
+      transform: scale(.91);
+      transform-origin: left top;
+
+      font-size: 12px;
+    }
+    .update-time,
+    .hot-logo {
+      position: relative;
+      z-index: 2;
+    }
+    .hot-logo {
+      width: 142px;
+      height: 67px;
+    }
+    &::after {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      content: " ";
+
+      background-color: rgba(0, 0, 0, .2);
+    }
+  }
+}
