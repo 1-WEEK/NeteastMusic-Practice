@@ -1,6 +1,8 @@
 $light-gray: #ccc;
 $gray: #888;
 $red: #d33a31;
+$sq: #FE672E;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,14 +28,13 @@ li {
 }
 
 body {
-  font-family: 'Lato', -apple-system, system-ui, sans-serif;
+  font-family: 'Karla', -apple-system, system-ui, sans-serif;
   font-size: 14px;
 }
 
-
-
 @import 'header';
 @import 'nav';
+@import 'song';
 @import 'recommend';
 @import 'popular';
 @import 'borders';

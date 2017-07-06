@@ -45,3 +45,22 @@
     }
   }
 }
+
+.popular-list {
+  .song-wrapper {
+    display: flex;
+
+    align-items: center;
+    &.highlight .index {
+      color: #df3436;
+      ;
+    }
+  }
+  .index {
+    width: 8vw;
+
+    color: #999;
+
+    font-size: 4.8vw;
+  }
+}

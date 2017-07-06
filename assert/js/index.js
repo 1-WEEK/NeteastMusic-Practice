@@ -1,4 +1,8 @@
 $(() => {
+  let url = '//localhost:2724',
+    popularUrl = url + '/top/list?idx=1',
+    recommendList = url + '/top/playlist?limit=10'
+
   $('.site-nav').on('click', 'li', e => {
     let $li = $(e.currentTarget)
     let index = $li.index()
@@ -16,7 +20,7 @@ $(() => {
     $li.addClass('active').siblings().removeClass('active')
     $('.container > div').eq(index).addClass('active').siblings().removeClass('active')
   })
-  $.get('/a.json', data=>{
+  $.getJSON(popularUrl, data => {
     console.log(data)
   })
 })

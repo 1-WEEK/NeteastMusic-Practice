@@ -18,7 +18,7 @@ li {
   display: block; }
 
 body {
-  font-family: 'Lato', -apple-system, system-ui, sans-serif;
+  font-family: 'Karla', -apple-system, system-ui, sans-serif;
   font-size: 14px; }
 
 /*header*/
@@ -79,6 +79,45 @@ body {
     position: relative;
     display: inline-block;
     padding: 0 5px; }
+
+.song-wrapper {
+  margin-left: 10px; }
+
+.song {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 6px 0; }
+  .song .icon {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 6vw;
+    height: 14.1vw;
+    fill: #AAAAAA; }
+  .song::after {
+    z-index: 2;
+    border-bottom: 1px solid #ccc; }
+  .song p {
+    margin-right: 11.2vw; }
+  .song .song-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    font-size: 17px; }
+  .song .song-info {
+    display: flex;
+    color: #888;
+    font-size: 12px;
+    align-items: center; }
+    .song .song-info .icon-sq {
+      position: static;
+      height: 15px;
+      transform: translateX(-4px);
+      stroke: #FE672E;
+      stroke-width: 20px;
+      fill: #FE672E; }
 
 .container {
   padding-top: 28.13vw; }
@@ -158,39 +197,6 @@ body {
     .recommend .playlist:nth-child(3n-1) {
       padding-right: 1px;
       padding-left: 1px; }
-  .recommend .latest-song {
-    position: relative;
-    display: block;
-    margin-left: 10px;
-    padding: 6px 0; }
-    .recommend .latest-song .icon {
-      position: absolute;
-      top: 0;
-      right: 10px;
-      width: 6vw;
-      height: 14.1vw;
-      fill: #AAAAAA; }
-    .recommend .latest-song::after {
-      z-index: 2;
-      border-bottom: 1px solid #ccc; }
-    .recommend .latest-song p {
-      margin-right: 11.2vw; }
-    .recommend .latest-song .song-title {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      word-break: normal;
-      font-size: 17px; }
-    .recommend .latest-song .song-info {
-      display: flex;
-      color: #888;
-      font-size: 12px;
-      align-items: center; }
-      .recommend .latest-song .song-info .icon-sq {
-        position: static;
-        height: 19px;
-        transform: translateX(-4px);
-        fill: #d33a31; }
 
 footer {
   position: relative;
@@ -249,6 +255,17 @@ footer {
     left: 0;
     content: " ";
     background-color: rgba(0, 0, 0, 0.2); }
+
+.popular-list .song-wrapper {
+  display: flex;
+  align-items: center; }
+  .popular-list .song-wrapper.highlight .index {
+    color: #df3436; }
+
+.popular-list .index {
+  width: 8vw;
+  color: #999;
+  font-size: 4.8vw; }
 
 .borders::after {
   position: absolute;
