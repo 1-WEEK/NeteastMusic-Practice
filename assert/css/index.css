@@ -63,13 +63,9 @@ body {
     height: 10.6vw;
     text-align: center;
     line-height: 10.6vw; }
-  .site-nav .nav-text {
-    position: relative;
-    display: inline-block;
-    padding: 0 5px; }
-    .site-nav .nav-text.active {
+    .site-nav li.active .nav-text {
       color: #d33a31; }
-      .site-nav .nav-text.active::after {
+      .site-nav li.active .nav-text::after {
         position: absolute;
         z-index: 3;
         bottom: -1px;
@@ -79,6 +75,10 @@ body {
         content: "";
         transform: scaleY(0.5);
         background: #d33a31; }
+  .site-nav .nav-text {
+    position: relative;
+    display: inline-block;
+    padding: 0 5px; }
 
 .borders::after {
   position: absolute;
@@ -92,6 +92,10 @@ body {
 
 .container {
   padding-top: 28.13vw; }
+  .container > div {
+    display: none; }
+    .container > div.active {
+      display: block; }
 
 .recommend {
   padding-top: 20px; }

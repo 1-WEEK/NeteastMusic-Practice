@@ -94,14 +94,7 @@ body {
     text-align: center;
 
     line-height: 10.6vw;
-  }
-  .nav-text {
-    position: relative;
-
-    display: inline-block;
-
-    padding: 0 5px;
-    &.active {
+    &.active .nav-text {
       color: $red;
       &::after {
         position: absolute;
@@ -118,6 +111,13 @@ body {
         background: #d33a31;
       }
     }
+  }
+  .nav-text {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0 5px;
   }
 }
 
@@ -138,6 +138,12 @@ body {
 // recommend
 .container {
   padding-top: 28.13vw;
+  > div {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 }
 
 .recommend {
