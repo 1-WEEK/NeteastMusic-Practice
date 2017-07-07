@@ -1,4 +1,7 @@
 // border
+.borders {
+  position: relative;
+}
 .borders::after {
   position: absolute;
   top: 0;

@@ -3,6 +3,7 @@ $lighter-gray: #ebecec;
 $gray: #888;
 $red: #d33a31;
 $sq: #FE672E;
+$blue: #507daf;
 
 * {
   box-sizing: border-box;
@@ -19,7 +20,7 @@ a,
 a:visited {
   text-decoration: none;
 
-  color: black;
+  color: #333;
 }
 
 ol li,
@@ -29,6 +30,8 @@ li {
 }
 
 body {
+  color: #333;
+
   font-family: 'Karla', -apple-system, system-ui, sans-serif;
   font-size: 14px;
 }

@@ -387,7 +387,7 @@
           <svg class="icon icon-search">
             <use xlink:href="#icon-search"></use>
           </svg>
-          <input type="text" class="search-input" placeholder="搜索歌曲、歌手、专辑">
+          <input type="text" class="search-input" placeholder="搜索歌曲">
           <figure class="close">
             <svg class="icon icon-close">
               <use xlink:href="#icon-close"></use>
@@ -395,8 +395,24 @@
           </figure>
         </div>
       </form>
-      <section class="popular-search"></section>
-      <section class="recommend-search"></section>
+      <!--<section class="popular-search">
+        <h3 class="title">热门搜索</h3>
+        <ul class="list">
+
+        </ul>
+      </section>-->
+      <section class="recommend-search active">
+        <h3 class="title borders">搜索</h3>
+        <ul>
+          <li class="recommend-item ">
+            <svg class="icon icon-search">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+            <p class="borders">全部都是你</p>
+          </li>
+        </ul>
+      </section>
+      <section class="search-result"></section>
     </div>
   </div>
 

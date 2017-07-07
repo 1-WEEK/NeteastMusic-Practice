@@ -44,4 +44,57 @@
       }
     }
   }
+  .popular-search {
+    padding: 4vw 2.67vw 0;
+    .title {
+      color: #666;
+
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+  .recommend-search {
+    display: none;
+    &.active {
+      display: block;
+    }
+    .title {
+      height: 13.33vw;
+      margin-left: 2.67vw;
+
+      color: $blue;
+
+      font-size: 4vw;
+      font-weight: normal;
+      line-height: 13.33vw;
+      &::after {
+        border-bottom: 1px solid $lighter-gray;
+      }
+    }
+    .recommend-item {
+      display: flex;
+
+      height: 12vw;
+      padding-left: 2.67vw;
+
+      align-items: center;
+      .borders {
+        width: 100%;
+        height: inherit;
+
+        font-size: 4vw;
+        line-height: 12vw;
+        &::after {
+          border-bottom: 1px solid $lighter-gray;
+        }
+      }
+      .icon-search {
+        width: 4.5vw;
+        height: 4.5vw;
+        margin-right: 2.67vw;
+
+        fill: #adabab;
+      }
+    }
+  }
 }
