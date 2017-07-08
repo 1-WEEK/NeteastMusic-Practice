@@ -10,5 +10,12 @@
   "dependencies": {
     "jquery": "^3.2.1"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0"
+  }
 }
