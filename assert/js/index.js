@@ -23,7 +23,7 @@ $(() => {
   $.getJSON(popularUrl, data => {
     console.log(data)
   })
-  $.getJSON('http://localhost:2724/search/suggest?keywords=爱', data=>{
+  $.getJSON('http://localhost:2724/search?keywords=%27you%20say%20run%27', data=>{
     console.log('this is search')
     console.log(data)
   })
