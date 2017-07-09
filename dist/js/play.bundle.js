@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10324,13 +10324,15 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_index_scss__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_index_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_play_scss__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_play_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_play_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 
@@ -10338,37 +10340,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_1_jquery___default.a(() => {
   let url = '//localhost:2724',
-    popularUrl = url + '/top/list?idx=1',
-    recommendList = url + '/top/playlist?limit=10'
+    songId = '',
+    album = {},
+    blurPic = '//music.163.com/api/img/blur/',
+    song = document.createElement('audio'),
+    $cover = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.cover'),
+    $background = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-background'),
+    $name = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-name'),
+    $author = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-author'),
+    $title = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('title')
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.site-nav').on('click', 'li', e => {
-    let $li = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a(e.currentTarget)
-    let index = $li.index()
-    if (index === 1) {
-      if ($li.attr('data-downloaded') != true) {
-        console.log($li)
-        $li.attr('data-downloaded', 'true')
-      }
-    } else if (index === 2) {
-      if ($li.attr('data-downloaded') != true) {
-        console.log($li)
-        $li.attr('data-downloaded', 'true')
-      }
-    }
-    $li.addClass('active').siblings().removeClass('active')
-    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.container > div').eq(index).addClass('active').siblings().removeClass('active')
+  songId = location.search.match(/\bid=([^&]*)/)[1]
+  console.log(songId)
+
+  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.get(url + '/song/detail?ids=' + songId, res => {
+    album = res.songs[0].al
+    blurPic += album.pic_str ? album.pic_str : album.pic;
+
+    album.picUrl = album.picUrl.replace(/https?:\/\//, '//')
+    album.picUrl = album.picUrl.replace('.jpg', '/music.163.com/api/img/blur/33930928967155923393092896715592')
+
+    $cover[0].src = album.picUrl
+    $background.css('background-image', 'url(' + blurPic + ')')
+
+    $title.text(res.songs[0].name)
+    $name.text(res.songs[0].name)
+    $author.text(res.songs[0].ar[0].name)
   })
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON(popularUrl, data => {
-    console.log(data)
+
+  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON(url + '/music/url?id=' + songId, res => {
+    song.src = res.data[0].url
   })
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON('http://localhost:2724/search?keywords=%27you%20say%20run%27', data=>{
-    console.log('this is search')
-    console.log(data)
+
+  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.icon-play').on('touchstart', function () {
+    song.play()
+    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-turn').addClass('playing')
+  })
+  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.icon-pause').on('touchstart', () => {
+    song.pause()
+    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-turn').removeClass('playing')
   })
 })
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
