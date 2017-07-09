@@ -1,3 +1,6 @@
+import '../scss/index.scss'
+import $ from 'jquery'
+
 $(() => {
   let url = '//localhost:2724',
     popularUrl = url + '/top/list?idx=1',
