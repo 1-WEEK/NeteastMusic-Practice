@@ -10327,60 +10327,62 @@ return jQuery;
 /* 1 */,
 /* 2 */,
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_play_scss__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_play_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_play_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 
 
+__webpack_require__(4);
 
-__WEBPACK_IMPORTED_MODULE_1_jquery___default.a(() => {
-  let url = '//localhost:2724',
-    songId = '',
-    album = {},
-    blurPic = '//music.163.com/api/img/blur/',
-    song = document.createElement('audio'),
-    $cover = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.cover'),
-    $background = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-background'),
-    $name = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-name'),
-    $author = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-author'),
-    $title = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('title')
+var _jquery = __webpack_require__(0);
 
-  songId = location.search.match(/\bid=([^&]*)/)[1]
-  console.log(songId)
+var _jquery2 = _interopRequireDefault(_jquery);
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.get(url + '/song/detail?ids=' + songId, res => {
-    album = res.songs[0].al
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(function () {
+  var url = '//localhost:2724',
+      songId = '',
+      album = {},
+      blurPic = '//music.163.com/api/img/blur/',
+      song = document.createElement('audio'),
+      $cover = (0, _jquery2.default)('.cover'),
+      $background = (0, _jquery2.default)('.song-background'),
+      $name = (0, _jquery2.default)('.song-name'),
+      $author = (0, _jquery2.default)('.song-author'),
+      $title = (0, _jquery2.default)('title');
+
+  songId = location.search.match(/\bid=([^&]*)/)[1];
+  console.log(songId);
+
+  _jquery2.default.get(url + '/song/detail?ids=' + songId, function (res) {
+    album = res.songs[0].al;
     blurPic += album.pic_str ? album.pic_str : album.pic;
 
-    album.picUrl = album.picUrl.replace(/https?:\/\//, '//')
-    album.picUrl = album.picUrl.replace('.jpg', '/music.163.com/api/img/blur/33930928967155923393092896715592')
+    album.picUrl = album.picUrl.replace(/https?:\/\//, '//');
+    album.picUrl = album.picUrl.replace('.jpg', '/music.163.com/api/img/blur/33930928967155923393092896715592');
 
-    $cover[0].src = album.picUrl
-    $background.css('background-image', 'url(' + blurPic + ')')
+    $cover[0].src = album.picUrl;
+    $background.css('background-image', 'url(' + blurPic + ')');
 
-    $title.text(res.songs[0].name)
-    $name.text(res.songs[0].name)
-    $author.text(res.songs[0].ar[0].name)
-  })
+    $title.text(res.songs[0].name);
+    $name.text(res.songs[0].name);
+    $author.text(res.songs[0].ar[0].name);
+  });
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON(url + '/music/url?id=' + songId, res => {
-    song.src = res.data[0].url
-  })
+  _jquery2.default.getJSON(url + '/music/url?id=' + songId, function (res) {
+    song.src = res.data[0].url;
+  });
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.icon-play').on('touchstart', function () {
-    song.play()
-    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-turn').addClass('playing')
-  })
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.icon-pause').on('touchstart', () => {
-    song.pause()
-    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.song-turn').removeClass('playing')
-  })
-})
+  (0, _jquery2.default)('.icon-play').on('touchstart', function () {
+    song.play();
+    (0, _jquery2.default)('.song-turn').addClass('playing');
+  });
+  (0, _jquery2.default)('.icon-pause').on('touchstart', function () {
+    song.pause();
+    (0, _jquery2.default)('.song-turn').removeClass('playing');
+  });
+});
 
 /***/ }),
 /* 4 */

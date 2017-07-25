@@ -10325,47 +10325,49 @@ return jQuery;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_index_scss__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_index_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 
 
+__webpack_require__(2);
 
-__WEBPACK_IMPORTED_MODULE_1_jquery___default.a(() => {
-  let url = '//localhost:2724',
-    popularUrl = url + '/top/list?idx=1',
-    recommendList = url + '/top/playlist?limit=10'
+var _jquery = __webpack_require__(0);
 
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.site-nav').on('click', 'li', e => {
-    let $li = __WEBPACK_IMPORTED_MODULE_1_jquery___default.a(e.currentTarget)
-    let index = $li.index()
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(function () {
+  var url = '//localhost:2724',
+      popularUrl = url + '/top/list?idx=1',
+      recommendList = url + '/top/playlist?limit=10';
+
+  (0, _jquery2.default)('.site-nav').on('click', 'li', function (e) {
+    var $li = (0, _jquery2.default)(e.currentTarget);
+    var index = $li.index();
     if (index === 1) {
       if ($li.attr('data-downloaded') != true) {
-        console.log($li)
-        $li.attr('data-downloaded', 'true')
+        console.log($li);
+        $li.attr('data-downloaded', 'true');
       }
     } else if (index === 2) {
       if ($li.attr('data-downloaded') != true) {
-        console.log($li)
-        $li.attr('data-downloaded', 'true')
+        console.log($li);
+        $li.attr('data-downloaded', 'true');
       }
     }
-    $li.addClass('active').siblings().removeClass('active')
-    __WEBPACK_IMPORTED_MODULE_1_jquery___default.a('.container > div').eq(index).addClass('active').siblings().removeClass('active')
-  })
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON(popularUrl, data => {
-    console.log(data)
-  })
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default.a.getJSON('http://localhost:2724/search?keywords=%27you%20say%20run%27', data=>{
-    console.log('this is search')
-    console.log(data)
-  })
-})
+    $li.addClass('active').siblings().removeClass('active');
+    (0, _jquery2.default)('.container > div').eq(index).addClass('active').siblings().removeClass('active');
+  });
+  _jquery2.default.getJSON(popularUrl, function (data) {
+    console.log(data);
+  });
+  _jquery2.default.getJSON('http://localhost:2724/search?keywords=%27you%20say%20run%27', function (data) {
+    console.log('this is search');
+    console.log(data);
+  });
+});
 
 /***/ }),
 /* 2 */

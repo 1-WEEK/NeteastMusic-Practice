@@ -18,11 +18,7 @@ module.exports = {
     rules: [{
       test: /\.scss$/,
       use: extractSass.extract({
-        use: [{
-          loader: "css-loader"
-        }, {
-          loader: "sass-loader"
-        }],
+        use: 'css-loader!sass-loader',
         // use style-loader in development
         fallback: "style-loader"
       })
@@ -36,5 +32,8 @@ module.exports = {
         }
       }
     }]
-  }
+  },
+  plugins: [
+    extractSass
+  ]
 };
