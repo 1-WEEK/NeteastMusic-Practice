@@ -83,45 +83,6 @@ nav.site-nav {
     display: inline-block;
     padding: 0 5px; }
 
-.song-wrapper {
-  margin-left: 10px; }
-
-.song {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 6px 0; }
-  .song .icon {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    width: 6vw;
-    height: 14.1vw;
-    fill: #AAAAAA; }
-  .song::after {
-    z-index: 2;
-    border-bottom: 1px solid #ccc; }
-  .song p {
-    margin-right: 11.2vw; }
-  .song .song-title {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    word-break: normal;
-    font-size: 17px; }
-  .song .song-info {
-    display: flex;
-    color: #888;
-    font-size: 12px;
-    align-items: center; }
-    .song .song-info .icon-sq {
-      position: static;
-      height: 15px;
-      transform: translateX(-4px);
-      stroke: #FE672E;
-      stroke-width: 20px;
-      fill: #FE672E; }
-
 .container {
   padding-top: 28.13vw; }
   .container > div {
@@ -226,6 +187,45 @@ footer {
     color: #888;
     font-size: 12px;
     line-height: 16px; }
+
+.song-wrapper {
+  margin-left: 10px; }
+
+.song {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 6px 0; }
+  .song .icon {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 6vw;
+    height: 14.1vw;
+    fill: #AAAAAA; }
+  .song::after {
+    z-index: 2;
+    border-bottom: 1px solid #ccc; }
+  .song p {
+    margin-right: 11.2vw; }
+  .song .song-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    font-size: 17px; }
+  .song .song-info {
+    display: flex;
+    color: #888;
+    font-size: 12px;
+    align-items: center; }
+    .song .song-info .icon-sq {
+      position: static;
+      height: 15px;
+      transform: translateX(-4px);
+      stroke: #FE672E;
+      stroke-width: 20px;
+      fill: #FE672E; }
 
 .popular .popular-banner {
   position: relative;

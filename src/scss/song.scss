@@ -1,0 +1,59 @@
+.song-wrapper {
+  margin-left: 10px;
+}
+
+.song {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  padding: 6px 0;
+  .icon {
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    width: 6vw;
+    height: 14.1vw;
+
+    fill: #AAAAAA;
+  }
+  &::after {
+    z-index: 2;
+
+    border-bottom: 1px solid $light-gray;
+  }
+  p {
+    margin-right: 11.2vw;
+  }
+  .song-title {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+
+    font-size: 17px;
+  }
+  .song-info {
+    display: flex;
+
+    color: $gray;
+
+    font-size: 12px;
+
+    align-items: center;
+    .icon-sq {
+      position: static;
+
+      height: 15px;
+
+      transform: translateX(-4px);
+
+      stroke: $sq;
+      stroke-width: 20px;
+      fill: $sq;
+    }
+  }
+}
