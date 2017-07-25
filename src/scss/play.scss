@@ -1,3 +1,5 @@
+@import 'colors';
+
 .song-wrapper {
   margin-left: 10px;
 }
@@ -45,16 +47,6 @@
     font-size: 12px;
 
     align-items: center;
-    .icon-sq {
-      position: static;
 
-      height: 15px;
-
-      transform: translateX(-4px);
-
-      stroke: $sq;
-      stroke-width: 20px;
-      fill: $sq;
-    }
   }
 }
