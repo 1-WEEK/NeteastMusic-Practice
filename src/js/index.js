@@ -12,10 +12,8 @@ $(() => {
   $.getJSON(newSong, data => {
     let $latestList = $('.latest-list')
     data = data.result
-    console.log(data)
     for (let i = 0; i < data.length; ++i) {
       $latestList.append(createSong(data[i].song))
-      console.log(data[i].song.artists[0])
     }
   })
 
@@ -25,16 +23,16 @@ $(() => {
     if (index === 1) {
       //  popular songs list
       if ($li.attr('data-downloaded') != 'true') {
-        $li.attr('data-ownloaded', 'true')
+        $li.attr('data-downloaded', 'true')
         loadPopularList(url)
       }
     } else if (index == 2) {
       // search
       if ($li.attr('data-downloaded') != 'true') {
-        $li.attr('data-ownloaded', 'true')
+        $li.attr('data-downloaded', 'true')
       }
     }
-    $li.addClass('activ').siblings().removeClass('active')
+    $li.addClass('active').siblings().removeClass('active')
     $('.container > div').eq(index).addClass('active').siblings().removeClass('active')
   })
 
