@@ -10,6 +10,11 @@ module.exports = {
     index: './src/js/index.js',
     play: './src/js/play.js'
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    port: 9000,
+    host: "0.0.0.0",
+  },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist/js')
