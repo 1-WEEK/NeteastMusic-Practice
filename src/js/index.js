@@ -3,6 +3,7 @@ import $ from 'jquery'
 import loadPopularList from './popularList'
 import createSong from './createSong'
 
+console.log('123')
 $(() => {
   let url = '//192.168.123.132:2724',
     newSong = url + '/personalized/newsong',

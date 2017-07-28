@@ -2,7 +2,8 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-  filename: "../css/[name].bundle.css"
+  filename: "css/[name].bundle.css",
+  publicPath: path.resolve(__dirname, 'dist')
 });
 
 module.exports = {
@@ -16,8 +17,8 @@ module.exports = {
     host: "0.0.0.0",
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist/js')
+    filename: 'js/[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [{
