@@ -5,16 +5,21 @@
 .song {
   position: relative;
 
-  display: block;
+  display: flex;
 
   width: 100%;
-  padding: 6px 0;
-  .icon {
-    position: absolute;
-    top: 0;
-    right: 10px;
+  padding-right: 6px;
 
-    width: 6vw;
+  justify-content: space-between;
+  align-items: center;
+  >div {
+    width: 0;
+
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+  }
+  .icon {
+    width: 6.01vw;
     height: 14.1vw;
 
     fill: #AAAAAA;
@@ -26,6 +31,8 @@
   }
   p {
     margin-right: 11.2vw;
+
+    line-height: 1.35;
   }
   .song-title {
     overflow: hidden;
@@ -35,6 +42,9 @@
     word-break: normal;
 
     font-size: 17px;
+    .sgalia {
+      color: #888;
+    }
   }
   .song-info {
     display: flex;

@@ -4,7 +4,7 @@ import loadPopularList from './popularList'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//192.168.2.104:2724',
+  let url = '//192.168.123.132:2724',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
 
@@ -12,15 +12,24 @@ $(() => {
   $.getJSON(recommendPlaylist, data => {
     let $playlists = $('.playlists')
     data = data.result
-    console.log(data)
 
     function createPlaylist(data) {
+      data.playCount = Math.floor(data.playCount)
       if (data.playCount / 10000 > 30) {
-        data.playCount = Math.floor(data.playCount/10000) + ' 万'
+        data.playCount = Math.floor(data.playCount / 10000) + ' 万'
       }
-      let playlist = `<a class="playlist" href="/dist/playlist.html?id=${data.id}">
+      data.picUrl = data.picUrl.replace(/https?:\/\//, '//')
+
+      // check chrome
+      if (!!window.chrome && !!window.chrome.webstore) {
+        data.picUrl.replace('.jpg', '.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp')
+      } else {
+        data.picUrl += '?imageView&thumbnail=360x0&quality=75&tostatic=0'
+      }
+
+      let playlist = `<a class="playlist" href="./playlist.html?id=${data.id}">
             <div class="playlist-cover">
-              <img src="${data.picUrl.replace(/https?:\/\//, '//')}"alt="">
+              <img src="${data.picUrl}"alt="">
               <div class="playlist-num">
                 <svg class="icon icon-erji">
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-erji"></use>
@@ -30,7 +39,7 @@ $(() => {
           </a>`
       return playlist
     }
-    for(let i=0; i<data.length; ++i) {
+    for (let i = 0; i < data.length; ++i) {
       $playlists.append(createPlaylist(data[i]))
     }
   })
