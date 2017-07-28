@@ -4,9 +4,36 @@ import loadPopularList from './popularList'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//localhost:2724',
+  let url = '//192.168.2.104:2724',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
+
+  // recommend playlist
+  $.getJSON(recommendPlaylist, data => {
+    let $playlists = $('.playlists')
+    data = data.result
+    console.log(data)
+
+    function createPlaylist(data) {
+      if (data.playCount / 10000 > 30) {
+        data.playCount = Math.floor(data.playCount/10000) + ' 万'
+      }
+      let playlist = `<a class="playlist" href="/dist/playlist.html?id=${data.id}">
+            <div class="playlist-cover">
+              <img src="${data.picUrl.replace(/https?:\/\//, '//')}"alt="">
+              <div class="playlist-num">
+                <svg class="icon icon-erji">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-erji"></use>
+                </svg>${data.playCount}</div>
+            </div>
+            <p class="title">${data.name}</p>
+          </a>`
+      return playlist
+    }
+    for(let i=0; i<data.length; ++i) {
+      $playlists.append(createPlaylist(data[i]))
+    }
+  })
 
   // latest songs list
   $.getJSON(newSong, data => {
