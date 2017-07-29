@@ -23,11 +23,11 @@ module.exports = {
   module: {
     rules: [{
       test: /\.scss$/,
-      use: extractSass.extract({
+      use: ['css-hot-loader'].concat(extractSass.extract({
         use: 'css-loader!postcss-loader!sass-loader',
         // use style-loader in development
         fallback: "style-loader"
-      })
+      }))
     }, {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
