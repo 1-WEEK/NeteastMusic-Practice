@@ -9,7 +9,8 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
   entry: {
     index: './src/js/index.js',
-    play: './src/js/play.js'
+    play: './src/js/play.js',
+    playlist: './src/js/playlist.js'
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
