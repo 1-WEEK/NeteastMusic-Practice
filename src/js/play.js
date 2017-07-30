@@ -2,7 +2,7 @@ import '../scss/play.scss'
 import $ from 'jquery'
 
 $(() => {
-  let url = '//139.199.219.110:2724',
+  let url = '//192.168.123.132:2724',
     songId = '',
     album = {},
     blurPic = '//music.163.com/api/img/blur/',

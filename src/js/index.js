@@ -4,7 +4,7 @@ import loadPopularList from './popularList'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//139.199.219.110:2724',
+  let url = '//192.168.123.132:2724',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
 

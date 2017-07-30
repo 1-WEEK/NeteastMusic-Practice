@@ -3,7 +3,7 @@ import $ from 'jquery'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//139.199.219.110:2724',
+  let url = '//192.168.123.132:2724',
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
@@ -66,7 +66,11 @@ $(() => {
       $songs.append(createSong(song))
     })
   })
-
+  $('.list-intro-arrows').on('click', e=>{
+    $('.icon-more').toggleClass('active')
+    $('.icon-less').toggleClass('active')
+    $('.description').toggleClass('active')
+  })
   function createTag(tag) {
     return `<div class="list-tag borders">${tag}</div>`
   }
