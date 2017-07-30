@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10326,13 +10326,15 @@ return jQuery;
 /***/ }),
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(4);
+__webpack_require__(6);
 
 var _jquery = __webpack_require__(0);
 
@@ -10341,7 +10343,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
-  var url = '//localhost:2724',
+  var url = '//139.199.219.110:2724',
       songId = '',
       album = {},
       blurPic = '//music.163.com/api/img/blur/',
@@ -10350,17 +10352,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       $background = (0, _jquery2.default)('.song-background'),
       $name = (0, _jquery2.default)('.song-name'),
       $author = (0, _jquery2.default)('.song-author'),
-      $title = (0, _jquery2.default)('title');
+      $title = (0, _jquery2.default)('title'),
+      $circle = (0, _jquery2.default)('.circle');
+
+  var isPlaying = false;
 
   songId = location.search.match(/\bid=([^&]*)/)[1];
   console.log(songId);
-
+  _jquery2.default.getJSON(url + '/music/url?id=' + songId, function (res) {
+    song.src = res.data[0].url;
+  });
   _jquery2.default.get(url + '/song/detail?ids=' + songId, function (res) {
     album = res.songs[0].al;
     blurPic += album.pic_str ? album.pic_str : album.pic;
 
     album.picUrl = album.picUrl.replace(/https?:\/\//, '//');
-    album.picUrl = album.picUrl.replace('.jpg', '/music.163.com/api/img/blur/33930928967155923393092896715592');
+    // album.picUrl = album.picUrl.replace('.jpg', '/music.163.com/api/img/blur/33930928967155923393092896715592')
+    album.picUrl += '?imageView&thumbnail=360x0&quality=75&tostatic=0';
 
     $cover[0].src = album.picUrl;
     $background.css('background-image', 'url(' + blurPic + ')');
@@ -10368,27 +10376,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     $title.text(res.songs[0].name);
     $name.text(res.songs[0].name);
     $author.text(res.songs[0].ar[0].name);
-  });
-
-  _jquery2.default.getJSON(url + '/music/url?id=' + songId, function (res) {
-    song.src = res.data[0].url;
+    console.log(res);
   });
 
   (0, _jquery2.default)('.icon-play').on('touchstart', function () {
     song.play();
-    (0, _jquery2.default)('.song-turn').addClass('playing');
+    play();
+    console.log('++++++++++pause++++++++++++');
   });
   (0, _jquery2.default)('.icon-pause').on('touchstart', function () {
     song.pause();
-    (0, _jquery2.default)('.song-turn').removeClass('playing');
+    pause();
   });
+
+  function pause() {
+    isPlaying = false;
+    var iTransform = getComputedStyle($cover[0]).transform;
+    var cTransform = getComputedStyle($circle[0]).transform;
+    $circle[0].style.transform = cTransform === 'none' ? iTransform : iTransform.concat(' ', cTransform);
+
+    (0, _jquery2.default)('.song-turn').removeClass('playing');
+  }
+
+  function play() {
+    isPlaying = true;
+    (0, _jquery2.default)('.song-turn').addClass('playing');
+  }
 });
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
 
 // removed by extract-text-webpack-plugin
+    if(false) {
+      // 1501418343979
+      const cssReload = require("../../node_modules/css-hot-loader/hotModuleReplacement.js")(module.id, {"fileMap":"{fileName}"});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);
+    }
+
 
 /***/ })
 /******/ ]);

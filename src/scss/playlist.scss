@@ -4,13 +4,13 @@
 @import 'song';
 html,
 body {
-  height: 100%
+  min-height: 100%
 }
 
 .container {
   position: relative;
 
-  height: inherit;
+  min-height: inherit;
 
   background-color: $bg;
   section {
@@ -231,6 +231,7 @@ body {
 
 // playlist songs
 .playlist-songs {
+  margin-bottom: 14.1vw;
   .title {
     height: 6.13vwx;
     padding: 0 10px;
@@ -246,7 +247,8 @@ body {
 
 //footer
 .footer {
-  position: absolute;
+  position: fixed;
+  z-index: 4;
   bottom: 0;
 
   display: flex;
@@ -279,9 +281,6 @@ body {
 
     justify-content: center;
     align-items: center;
-    &:focus {
-      outline: none;
-    }
     .icon-netease-music {
       width: 7vw;
       height: 7vw;

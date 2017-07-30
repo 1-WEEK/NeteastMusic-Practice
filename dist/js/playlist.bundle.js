@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10364,21 +10364,22 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 2 */
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(3);
+__webpack_require__(8);
 
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
-
-var _popularList = __webpack_require__(4);
-
-var _popularList2 = _interopRequireDefault(_popularList);
 
 var _createSong = __webpack_require__(1);
 
@@ -10388,112 +10389,88 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _jquery2.default)(function () {
   var url = '//139.199.219.110:2724',
-      newSong = url + '/personalized/newsong',
-      recommendPlaylist = url + '/personalized';
+      playlistDetail = url + '/playlist/detail?id=',
+      playlistId = '520479185',
+      $bg = (0, _jquery2.default)('.list-header-bg'),
+      $name = (0, _jquery2.default)('.list-title'),
+      $playCount = (0, _jquery2.default)('.playlist-num>p'),
+      $cover = (0, _jquery2.default)('.playlist-cover>img'),
+      $usrName = (0, _jquery2.default)('.list-author>p'),
+      $usrAvatar = (0, _jquery2.default)('.u-avatar'),
+      $tags = (0, _jquery2.default)('.list-tags'),
+      $des = (0, _jquery2.default)('.description'),
+      $songs = (0, _jquery2.default)('.list-songs'),
+      bgPic = '';
 
-  // recommend playlist
-  _jquery2.default.getJSON(recommendPlaylist, function (data) {
-    var $playlists = (0, _jquery2.default)('.playlists');
-    data = data.result;
+  _jquery2.default.getJSON(playlistDetail + playlistId, function (data) {
+    console.log(data);
+    data = data.playlist;
+    (0, _jquery2.default)('title').text(data.name);
+    $name.text(data.name);
+    $usrName.text(data.creator.nickname);
 
-    function createPlaylist(data) {
-      data.playCount = Math.floor(data.playCount);
-      if (data.playCount / 10000 > 30) {
-        data.playCount = Math.floor(data.playCount / 10000) + ' 万';
-      }
-      data.picUrl = data.picUrl.replace(/https?:\/\//, '//');
-
-      // check chrome
-      if (!!window.chrome && !!window.chrome.webstore) {
-        data.picUrl = data.picUrl.replace('.jpg', '.webp?imageView&thumbnail=246x0&quality=75&tostatic=0&type=webp');
-      } else {
-        data.picUrl += '?imageView&thumbnail=360x0&quality=75&tostatic=0';
-      }
-
-      var playlist = '<a class="playlist" href="./playlist.html?id=' + data.id + '">\n            <div class="playlist-cover">\n              <img src="' + data.picUrl + '"alt="">\n              <div class="playlist-num">\n                <svg class="icon icon-erji">\n                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-erji"></use>\n                </svg>' + data.playCount + '</div>\n            </div>\n            <p class="title">' + data.name + '</p>\n          </a>';
-      return playlist;
+    // play count
+    data.playCount = Math.floor(data.playCount);
+    if (data.playCount / 10000 > 30) {
+      data.playCount = Math.floor(data.playCount / 10000) + ' 万';
     }
-    for (var i = 0; i < data.length; ++i) {
-      $playlists.append(createPlaylist(data[i]));
+    $playCount.text(data.playCount);
+    //info
+    data.tags.forEach(function (tag) {
+      $tags.append(createTag(tag));
+    });
+    // console.log(data.tags)
+    data.description = '简介：' + data.description;
+    data.description.split('\n').forEach(function (e) {
+      $des.append(createP(e));
+    });
+
+    // pic
+    bgPic += '//music.163.com/api/img/blur/' + (data.coverImgId_str ? data.coverImgId_str : data.coverImgId).toString() + '.jpg?imageView&thumbnail=40x0&quality=75&tostatic=0';
+    data.creator.avatarUrl = data.creator.avatarUrl.replace(/https?:\/\//, '//');
+    data.coverImgUrl = data.coverImgUrl.replace(/https:\/\//, '//');
+
+    // check chrome
+    if (!!window.chrome && !!window.chrome.webstore) {
+      data.creator.avatarUrl = data.creator.avatarUrl.replace('.jpg', '.webp?imageView&thumbnail=60x0&quality=75&tostatic=0&type=webp');
+      data.coverImgUrl = data.coverImgUrl.replace('.jpg', '.webp?imageView&thumbnail=252x0&quality=75&tostatic=0&type=webp');
+    } else {
+      // data.avatarUrl += '?imageView&thumbnail=360x0&quality=75&tostatic=0'
+      data.creator.avatarUrl += '?imageView&thumbnail=60x0&quality=75&tostatic=0';
+      data.coverImgUrl += '?imageView&thumbnail=252x0&quality=75&tostatic=0';
     }
+    // console.log(data.playlist.description.split('\n'))
+    $bg.css('background-image', 'url(' + bgPic + ')');
+    $usrAvatar[0].src = data.creator.avatarUrl;
+    $cover[0].src = data.coverImgUrl;
+
+    // console.log(createSong(data.tracks[0]))
+    data.tracks.forEach(function (song) {
+      $songs.append((0, _createSong2.default)(song));
+    });
   });
 
-  // latest songs list
-  _jquery2.default.getJSON(newSong, function (data) {
-    var $latestList = (0, _jquery2.default)('.latest-list');
-    data = data.result;
-    for (var i = 0; i < data.length; ++i) {
-      $latestList.append((0, _createSong2.default)(data[i].song));
-    }
-  });
+  function createTag(tag) {
+    return '<div class="list-tag borders">' + tag + '</div>';
+  }
 
-  (0, _jquery2.default)('.site-nav').on('click', 'li', function (e) {
-    var $li = (0, _jquery2.default)(e.currentTarget);
-    var index = $li.index();
-    if (index === 1) {
-      //  popular songs list
-      if ($li.attr('data-downloaded') != 'true') {
-        $li.attr('data-downloaded', 'true');
-        (0, _popularList2.default)(url);
-      }
-    } else if (index == 2) {
-      // search
-      if ($li.attr('data-downloaded') != 'true') {
-        $li.attr('data-downloaded', 'true');
-      }
-    }
-    $li.addClass('active').siblings().removeClass('active');
-    (0, _jquery2.default)('.container > div').eq(index).addClass('active').siblings().removeClass('active');
-  });
+  function createP(e) {
+    return '<span>' + e + '<br></span>';
+  }
 });
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // removed by extract-text-webpack-plugin
     if(false) {
-      // 1501418344129
+      // 1501420205149
       const cssReload = require("../../node_modules/css-hot-loader/hotModuleReplacement.js")(module.id, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
     }
 
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function (url) {
-  var popularUrl = url + '/top/list?idx=1',
-      updateTime = void 0;
-
-  _jquery2.default.getJSON(popularUrl, function (data) {
-    data = data.result;
-    updateTime = new Date(data.updateTime);
-    (0, _jquery2.default)('.update-time').text('\u66F4\u65B0\u65E5\u671F\uFF1A' + (updateTime.getMonth() + 1) + ' \u6708 ' + updateTime.getDate() + ' \u65E5');
-    for (var i = 0, length = 20; i < length; ++i) {
-      (0, _jquery2.default)('.popular-list').append((0, _createSong2.default)(data.tracks[i], i + 1));
-    }
-  });
-};
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _createSong = __webpack_require__(1);
-
-var _createSong2 = _interopRequireDefault(_createSong);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ]);
