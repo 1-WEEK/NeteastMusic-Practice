@@ -5,7 +5,7 @@ import createSong from './createSong'
 $(() => {
   let url = '//139.199.219.110:2724',
     playlistDetail = url + '/playlist/detail?id=',
-    playlistId = '511431769',
+    playlistId = '',
     $bg = $('.list-header-bg'),
     $name = $('.list-title'),
     $playCount = $('.playlist-num>p'),
@@ -16,6 +16,8 @@ $(() => {
     $des = $('.description'),
     $songs = $('.list-songs'),
     bgPic = ''
+
+    playlistId = location.search.match(/\bid=([^&]*)/)[1]
 
   $.getJSON(playlistDetail + playlistId, data => {
     console.log(data)

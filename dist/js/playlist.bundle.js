@@ -10390,7 +10390,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _jquery2.default)(function () {
   var url = '//139.199.219.110:2724',
       playlistDetail = url + '/playlist/detail?id=',
-      playlistId = '520479185',
+      playlistId = '',
       $bg = (0, _jquery2.default)('.list-header-bg'),
       $name = (0, _jquery2.default)('.list-title'),
       $playCount = (0, _jquery2.default)('.playlist-num>p'),
@@ -10401,6 +10401,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       $des = (0, _jquery2.default)('.description'),
       $songs = (0, _jquery2.default)('.list-songs'),
       bgPic = '';
+
+  playlistId = location.search.match(/\bid=([^&]*)/)[1];
 
   _jquery2.default.getJSON(playlistDetail + playlistId, function (data) {
     console.log(data);
@@ -10465,12 +10467,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // removed by extract-text-webpack-plugin
     if(false) {
-      // 1501420205149
+      // 1501423652259
       const cssReload = require("../../node_modules/css-hot-loader/hotModuleReplacement.js")(module.id, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
     }
-
+  
 
 /***/ })
 /******/ ]);

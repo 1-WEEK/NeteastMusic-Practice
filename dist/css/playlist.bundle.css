@@ -274,17 +274,20 @@ body {
         .playlist-info .list-intro .list-intro-arrows .icon.active {
           display: block; }
 
-.playlist-songs .title {
-  height: 6.13vwx;
-  padding: 0 10px;
-  color: #666;
-  background-color: #eeeff0;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 6.13vw; }
+.playlist-songs {
+  margin-bottom: 14.1vw; }
+  .playlist-songs .title {
+    height: 6.13vwx;
+    padding: 0 10px;
+    color: #666;
+    background-color: #eeeff0;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 6.13vw; }
 
 .footer {
-  position: absolute;
+  position: fixed;
+  z-index: 4;
   bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,8 +322,6 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .footer .collect:focus {
-      outline: none; }
     .footer .collect .icon-netease-music {
       width: 7vw;
       height: 7vw;
