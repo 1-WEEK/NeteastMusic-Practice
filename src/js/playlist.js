@@ -3,11 +3,7 @@ import $ from 'jquery'
 import createSong from './createSong'
 
 $(() => {
-<<<<<<< HEAD
-  let url = '//192.168.123.132:2724',
-=======
   let url = '//localhost:2724',
->>>>>>> public-test
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
@@ -56,23 +52,15 @@ $(() => {
       data.creator.avatarUrl = data.creator.avatarUrl.replace('.jpg', '.webp?imageView&thumbnail=60x0&quality=75&tostatic=0&type=webp')
       data.coverImgUrl = data.coverImgUrl.replace('.jpg', '.webp?imageView&thumbnail=252x0&quality=75&tostatic=0&type=webp')
     } else {
-      // data.avatarUrl += '?imageView&thumbnail=360x0&quality=75&tostatic=0'
       data.creator.avatarUrl += '?imageView&thumbnail=60x0&quality=75&tostatic=0'
       data.coverImgUrl += '?imageView&thumbnail=252x0&quality=75&tostatic=0'
     }
-    // console.log(data.playlist.description.split('\n'))
     $bg.css('background-image', 'url(' + bgPic + ')')
     $usrAvatar[0].src = data.creator.avatarUrl
     $cover[0].src = data.coverImgUrl
 
-    // console.log(createSong(data.tracks[0]))
-<<<<<<< HEAD
-    data.tracks.forEach(song=>{
-      $songs.append(createSong(song))
-=======
     data.tracks.forEach((song, index)=>{
       $songs.append(createSong(song, index+1))
->>>>>>> public-test
     })
   })
   $('.list-intro-arrows').on('click', e=>{
