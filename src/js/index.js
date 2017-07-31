@@ -4,7 +4,7 @@ import loadPopularList from './popularList'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//192.168.123.132:2724',
+  let url = '//localhost:2724',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
 
@@ -39,18 +39,18 @@ $(() => {
           </a>`
       return playlist
     }
-    for (let i = 0; i < data.length; ++i) {
-      $playlists.append(createPlaylist(data[i]))
-    }
+    data.forEach(e => {
+      $playlists.append(createPlaylist(e))
+    })
   })
 
   // latest songs list
   $.getJSON(newSong, data => {
     let $latestList = $('.latest-list')
     data = data.result
-    for (let i = 0; i < data.length; ++i) {
-      $latestList.append(createSong(data[i].song))
-    }
+    data.forEach((e, i) => {
+      $latestList.append(createSong(e.song))
+    })
   })
 
   $('.site-nav').on('click', 'li', e => {

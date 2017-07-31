@@ -1,6 +1,10 @@
 import $ from 'jquery'
 
+<<<<<<< HEAD
 export default function (data, index) {
+=======
+export default function (data, index, top) {
+>>>>>>> public-test
   if (!data.album) {
     data.album = data.al
   }
@@ -21,7 +25,11 @@ export default function (data, index) {
   </svg>
 </a>`
   if (index || index > 99) {
+<<<<<<< HEAD
     if (index < 4)
+=======
+    if (index < 4 && top)
+>>>>>>> public-test
       highlight = 'highlight'
     if (index < 10) {
       index = '0' + index
