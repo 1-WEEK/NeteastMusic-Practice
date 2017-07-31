@@ -8,7 +8,7 @@
   flex-direction: column;
 
   height: 100vh;
-  div {
+  > div {
     z-index: 1;
   }
 }
@@ -61,10 +61,15 @@
 
     justify-content: center;
     align-items: center;
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
     &.playing {
-      .light,
-      .cover {
-        animation-play-state: running;
+      .cover,
+      .light {
+        animation: circle 20s infinite linear;
       }
       .song-control-btns {
         .icon {
@@ -80,18 +85,23 @@
     }
     .light {
       position: absolute;
+      top: calc(50% - 36vw);
+      left: calc(50% - 36vw);
 
       width: 72vw;
-    }
-    .light,
-    .cover {
-      animation: circle 20s infinite linear;
-      animation-play-state: paused;
-    }
+    } // .light,
+    // .cover {
+    //   animation: circle 20s infinite linear;
+    //   -webkit-animation-play-state: paused;
+    //   animation-play-state: paused;
+    // }
     .cover {
       position: absolute;
+      top: calc(50% - 22.5vw);
+      left: calc(50% - 22.5vw);
 
       width: 45vw;
+      height: 45vw;
 
       border-radius: 50%;
     }
@@ -100,6 +110,7 @@
 
 .song-control-btns {
   position: absolute;
+  z-index: 999;
   top: 50%;
   left: 50%;
 
@@ -191,10 +202,7 @@
 
 // animation
 @keyframes circle {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(1turn);
   }
 }
