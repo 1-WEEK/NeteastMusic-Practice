@@ -1,6 +1,15 @@
 import $ from 'jquery'
 
 export default function (data, index) {
+  if (!data.album) {
+    data.album = data.al
+  }
+  if (!data.alias) {
+    data.alias = data.alia
+  }
+  if (!data.artists) {
+    data.artists = data.ar
+  }
   let highlight = ''
   let song =
     `<a href="./play.html?id=${data.id}" class="song borders">
@@ -8,14 +17,15 @@ export default function (data, index) {
   <p class="song-info">
     ${data.artists[0].name} - ${data.album.name}</p></div>
   <svg class="icon">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-song"></use>
   </svg>
 </a>`
-  if (index) {
-    if (index < 10)
-      index = '0' + index
+  if (index || index > 99) {
     if (index < 4)
       highlight = 'highlight'
+    if (index < 10) {
+      index = '0' + index
+    }
     song = `<div class="index">${index}</div>` + song
   }
   let songWrapper = `<div class="song-wrapper ${highlight}">${song}</div>`
