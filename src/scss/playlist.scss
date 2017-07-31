@@ -243,6 +243,18 @@ body {
     font-weight: normal;
     line-height: 6.13vw;
   }
+  .song-wrapper {
+    display: flex;
+
+    align-items: center;
+    .index {
+      width: 8vw;
+
+      color: #999;
+
+      font-size: 4.8vw;
+    }
+  }
 }
 
 //footer
@@ -251,15 +263,10 @@ body {
   z-index: 4;
   bottom: 0;
 
-  display: flex;
-
-  width: 100vw;
+  width: 100%;
   padding: 7px 0;
 
   background-color: #fff;
-
-  justify-content: center;
-  align-items: center;
   &::after {
     border: 1px solid rgba(0, 0, 0, .1);
   }
@@ -268,6 +275,7 @@ body {
 
     width: 84vw;
     height: 10.6vw;
+    margin: auto;
 
     cursor: pointer;
 

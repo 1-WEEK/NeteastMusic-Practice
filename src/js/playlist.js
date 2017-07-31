@@ -3,7 +3,7 @@ import $ from 'jquery'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//192.168.123.132:2724',
+  let url = '//localhost:2724',
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
@@ -62,8 +62,8 @@ $(() => {
     $cover[0].src = data.coverImgUrl
 
     // console.log(createSong(data.tracks[0]))
-    data.tracks.forEach(song=>{
-      $songs.append(createSong(song))
+    data.tracks.forEach((song, index)=>{
+      $songs.append(createSong(song, index+1))
     })
   })
   $('.list-intro-arrows').on('click', e=>{
