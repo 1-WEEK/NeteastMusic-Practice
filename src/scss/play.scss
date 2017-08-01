@@ -8,7 +8,7 @@
   flex-direction: column;
 
   height: 100vh;
-  > div {
+  >div {
     z-index: 1;
   }
 }
@@ -162,11 +162,27 @@
     font-weight: bold;
   }
   h2.song-title {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     font-size: 4.8vw;
     font-weight: normal;
   }
   .song-lrc {
+    overflow: hidden;
+
+    height: 92px;
     margin-top: 3.73vw;
+
+    font-size: 16px;
+    div {
+      transition: all 0.2s ease-in-out;
+    }
+    .lyric-item.active {
+      color: white;
+    }
   }
 }
 
