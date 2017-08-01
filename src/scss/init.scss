@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+
+  color: #333;
+}
+
+ol li,
+ul li,
+li {
+  display: block;
+}
+
+body {
+  color: #333;
+
+  font-family: 'Palanquin', -apple-system, system-ui, sans-serif;
+  font-size: 14px;
+}
