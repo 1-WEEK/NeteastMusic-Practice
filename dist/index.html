@@ -120,22 +120,22 @@
     <div class="popular">
       <div class="popular-banner">
         <img src="//ooo.0o0.ooo/2017/07/06/595dffd076e34.png" class="hot-logo"></img>
-        <p class="update-time">更新日期：07月06日</p>
+        <p class="update-time"></p>
       </div>
       <ol class="popular-list"></ol>
     </div>
     <div class="search">
-      <form class="borders" action="" method="get">
+      <form class="borders" onsubmit="return false" action="" method="get" id="search-form">
         <div class="input-wrapper">
           <svg class="icon icon-search">
             <use xlink:href="#icon-search"></use>
           </svg>
           <input type="text" class="search-input" placeholder="搜索歌曲">
-          <figure class="close">
+          <div class="close">
             <svg class="icon icon-close">
               <use xlink:href="#icon-close"></use>
             </svg>
-          </figure>
+          </div>
         </div>
       </form>
       <!--<section class="popular-search">
@@ -144,22 +144,15 @@
 
         </ul>
       </section>-->
-      <section class="recommend-search active">
+      <section class="recommend-search">
         <h3 class="title borders">搜索</h3>
-        <ul>
-          <li class="recommend-item ">
-            <svg class="icon icon-search">
-              <use xlink:href="#icon-search"></use>
-            </svg>
-            <p class="borders">全部都是你</p>
-          </li>
-        </ul>
+        <ul class="suggest-items"></ul>
       </section>
       <section class="search-result"></section>
     </div>
   </div>
 
-  <script src="//at.alicdn.com/t/font_2w8q8lrped4jwcdi.js"></script>
+  <script src="//at.alicdn.com/t/font_71ts14ak3issjor.js"></script>
   <script src="/js/index.bundle.js"></script>
 </body>
 

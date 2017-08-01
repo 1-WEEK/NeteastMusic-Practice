@@ -24,6 +24,9 @@
     }
     .icon-close {
       display: none;
+      &.show {
+        display: block;
+      }
     }
     .search-input {
       width: 100%;
@@ -95,6 +98,12 @@
 
         fill: #adabab;
       }
+    }
+  }
+  .search-result {
+    display: none;
+    &.active {
+      display: block;
     }
   }
 }

@@ -2,6 +2,7 @@ import '../scss/index.scss'
 import $ from 'jquery'
 import loadPopularList from './popularList'
 import createSong from './createSong'
+import loadSearch from './search'
 
 $(() => {
   let url = '//192.168.123.132:2724',
@@ -66,6 +67,7 @@ $(() => {
       // search
       if ($li.attr('data-downloaded') != 'true') {
         $li.attr('data-downloaded', 'true')
+        loadSearch(url)
       }
     }
     $li.addClass('active').siblings().removeClass('active')
