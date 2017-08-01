@@ -3,7 +3,7 @@ import $ from 'jquery'
 import createSong from './createSong'
 
 $(() => {
-  let url = '//localhost:2724',
+  let url = '//192.168.123.132:2724',
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
