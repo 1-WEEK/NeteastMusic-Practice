@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>某音乐的练习</title>
   <link rel="stylesheet" href="/css/index.bundle.css">
-  <link href="https://fonts.googleapis.com/css?family=Palanquin:400,700"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Palanquin:400,700" rel="stylesheet">
 </head>
 
 <body>
@@ -72,11 +72,15 @@
     <div class="recommend active">
       <section class="recommend-playlist">
         <h2>推荐歌单</h2>
-        <div class="playlists"></div>
+        <div class="playlists">
+          <div class="loading" id="loading-playlists"></div>
+        </div>
       </section>
       <section class="latest">
         <h2>最新音乐</h2>
-        <div class="latest-list"></div>
+        <div class="latest-list">
+          <div class="loading" id="loading-latest"></div>
+        </div>
       </section>
       <footer>
         <div class="footer-wrapper">
@@ -118,48 +122,44 @@
       </footer>
     </div>
     <div class="popular">
+      <div class="loading" id="loading-popular"></div>
       <div class="popular-banner">
         <img src="//ooo.0o0.ooo/2017/07/06/595dffd076e34.png" class="hot-logo"></img>
-        <p class="update-time">更新日期：07月06日</p>
+        <p class="update-time"></p>
       </div>
       <ol class="popular-list"></ol>
     </div>
     <div class="search">
-      <form class="borders" action="" method="get">
+      <form class="borders" onsubmit="return false" action="" method="get" id="search-form">
         <div class="input-wrapper">
           <svg class="icon icon-search">
             <use xlink:href="#icon-search"></use>
           </svg>
           <input type="text" class="search-input" placeholder="搜索歌曲">
-          <figure class="close">
+          <div class="close">
             <svg class="icon icon-close">
               <use xlink:href="#icon-close"></use>
             </svg>
-          </figure>
+          </div>
         </div>
       </form>
+      <div class="loading" id="loading-search"></div>
       <!--<section class="popular-search">
         <h3 class="title">热门搜索</h3>
         <ul class="list">
 
         </ul>
       </section>-->
-      <section class="recommend-search active">
+      <section class="recommend-search">
         <h3 class="title borders">搜索</h3>
-        <ul>
-          <li class="recommend-item ">
-            <svg class="icon icon-search">
-              <use xlink:href="#icon-search"></use>
-            </svg>
-            <p class="borders">全部都是你</p>
-          </li>
-        </ul>
+        <ul class="suggest-items"></ul>
       </section>
-      <section class="search-result"></section>
+      <section class="search-result">
+      </section>
     </div>
   </div>
 
-  <script src="//at.alicdn.com/t/font_2w8q8lrped4jwcdi.js"></script>
+  <script src="//at.alicdn.com/t/font_71ts14ak3issjor.js"></script>
   <script src="/js/index.bundle.js"></script>
 </body>
 

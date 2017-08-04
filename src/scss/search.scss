@@ -24,6 +24,9 @@
     }
     .icon-close {
       display: none;
+      &.show {
+        display: block;
+      }
     }
     .search-input {
       width: 100%;
@@ -32,8 +35,6 @@
       border: 0;
       border-radius: 0;
       background: transparent;
-
-      font-size: 14px;
 
       -webkit-appearance: none;
       &::-webkit-input-placeholder {
@@ -95,6 +96,12 @@
 
         fill: #adabab;
       }
+    }
+  }
+  .search-result {
+    display: none;
+    &.active {
+      display: block;
     }
   }
 }

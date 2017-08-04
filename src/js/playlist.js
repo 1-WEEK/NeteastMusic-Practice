@@ -1,9 +1,10 @@
 import '../scss/playlist.scss'
 import $ from 'jquery'
 import createSong from './createSong'
+import loading from './loading'
 
 $(() => {
-  let url = '//192.168.123.132:2724',
+  let url = '//localhost:2724',
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
@@ -19,7 +20,7 @@ $(() => {
 
     playlistId = location.search.match(/\bid=([^&]*)/)[1]
 
-  $.getJSON(playlistDetail + playlistId, data => {
+  $.get(playlistDetail + playlistId, data => {
     console.log(data)
     data = data.playlist
     $('title').text(data.name)
@@ -62,7 +63,7 @@ $(() => {
     data.tracks.forEach((song, index)=>{
       $songs.append(createSong(song, index+1))
     })
-  })
+  }).done(loading('loading-playlist'))
   $('.list-intro-arrows').on('click', e=>{
     $('.icon-more').toggleClass('active')
     $('.icon-less').toggleClass('active')

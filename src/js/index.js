@@ -2,14 +2,16 @@ import '../scss/index.scss'
 import $ from 'jquery'
 import loadPopularList from './popularList'
 import createSong from './createSong'
+import loadSearch from './search'
+import loading from './loading'
 
 $(() => {
-  let url = '//192.168.123.132:2724',
+  let url = '//localhost:2724',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
 
   // recommend playlist
-  $.getJSON(recommendPlaylist, data => {
+  $.get(recommendPlaylist, data => {
     let $playlists = $('.playlists')
     data = data.result
 
@@ -42,16 +44,16 @@ $(() => {
     data.forEach(e => {
       $playlists.append(createPlaylist(e))
     })
-  })
+  }).done(loading('loading-playlists'))
 
   // latest songs list
-  $.getJSON(newSong, data => {
+  $.get(newSong, data => {
     let $latestList = $('.latest-list')
     data = data.result
     data.forEach((e, i) => {
       $latestList.append(createSong(e.song))
     })
-  })
+  }).done(loading('loading-latest'))
 
   $('.site-nav').on('click', 'li', e => {
     let $li = $(e.currentTarget)
@@ -66,6 +68,7 @@ $(() => {
       // search
       if ($li.attr('data-downloaded') != 'true') {
         $li.attr('data-downloaded', 'true')
+        loadSearch(url)
       }
     }
     $li.addClass('active').siblings().removeClass('active')

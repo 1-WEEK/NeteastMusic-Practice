@@ -1,0 +1,16 @@
+
+.loading {
+  position: absolute;
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  background: #fff url("//i.loli.net/2017/08/03/5982d83ad11ea.gif
+ ") no-repeat  50% 50%;
+}
+#loading-search {
+  display: none;
+
+  background-position-y: 10%;
+}
