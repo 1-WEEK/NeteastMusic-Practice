@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>某音乐的练习</title>
   <link rel="stylesheet" href="/css/index.bundle.css">
-  <link href="https://fonts.googleapis.com/css?family=Palanquin:400,700"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Palanquin:400,700" rel="stylesheet">
 </head>
 
 <body>
@@ -72,11 +72,15 @@
     <div class="recommend active">
       <section class="recommend-playlist">
         <h2>推荐歌单</h2>
-        <div class="playlists"></div>
+        <div class="playlists">
+          <div class="loading" id="loading-playlists"></div>
+        </div>
       </section>
       <section class="latest">
         <h2>最新音乐</h2>
-        <div class="latest-list"></div>
+        <div class="latest-list">
+          <div class="loading" id="loading-latest"></div>
+        </div>
       </section>
       <footer>
         <div class="footer-wrapper">
@@ -118,6 +122,7 @@
       </footer>
     </div>
     <div class="popular">
+      <div class="loading" id="loading-popular"></div>
       <div class="popular-banner">
         <img src="//ooo.0o0.ooo/2017/07/06/595dffd076e34.png" class="hot-logo"></img>
         <p class="update-time"></p>
@@ -138,6 +143,7 @@
           </div>
         </div>
       </form>
+      <div class="loading" id="loading-search"></div>
       <!--<section class="popular-search">
         <h3 class="title">热门搜索</h3>
         <ul class="list">
@@ -148,7 +154,8 @@
         <h3 class="title borders">搜索</h3>
         <ul class="suggest-items"></ul>
       </section>
-      <section class="search-result"></section>
+      <section class="search-result">
+      </section>
     </div>
   </div>
 

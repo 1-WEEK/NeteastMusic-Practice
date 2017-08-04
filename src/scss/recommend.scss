@@ -1,10 +1,15 @@
 // recommend
 .container {
+  height: inherit;
   padding-top: 28.13vw;
   >div {
     display: none;
     &.active {
+      position: relative;
+
       display: block;
+
+      height: inherit;
     }
   }
 }
@@ -36,8 +41,11 @@
     }
   } // recommend-playlists
   .playlists {
+    position: relative;
+
     display: flex;
 
+    min-height: 103.2vw;
     padding-bottom: 24px;
 
     flex-wrap: wrap;
@@ -113,6 +121,11 @@
       padding-left: 1px;
     }
   } // latest
+  .latest .latest-list {
+    position: relative;
+
+    min-height: 141vw;
+  }
 }
 
 // footer

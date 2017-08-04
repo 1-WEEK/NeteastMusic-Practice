@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import loadSearchResult from './searchResult'
 import loadSearchSuggest from './searchSuggest'
+let suggestResult = {}
 
 export default function (url) {
   let suggest = url + '/search/suggest?keywords=',
@@ -46,7 +47,7 @@ export default function (url) {
     loadSearchResult({
       url: url,
       limit: 20,
-      keywords: e.currentTarget.name,
+      keywords: $(e.currentTarget).attr('data-name'),
       offset: 0
     })
   })
@@ -54,7 +55,7 @@ export default function (url) {
   function throttle(method, context) {
     clearTimeout(method.tId)
     method.tId = setTimeout(function () {
-      method(context);
+     method(context)
     }, 1000);
   }
 

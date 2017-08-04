@@ -1,8 +1,9 @@
 import '../scss/play.scss'
 import $ from 'jquery'
+import loading from './loading'
 
 $(() => {
-  let url = '//192.168.123.132:2724',
+  let url = '//localhost:2724',
     songId = '',
     album = {},
     blurPic = '//music.163.com/api/img/blur/',
@@ -25,9 +26,9 @@ $(() => {
   let isPlaying = false;
 
   songId = location.search.match(/\bid=([^&]*)/)[1]
-  $.getJSON(url + '/music/url?id=' + songId, res => {
+  $.get(url + '/music/url?id=' + songId, res => {
     song.src = res.data[0].url
-  })
+  }).done(loading('loading-play'))
   $.get(url + '/song/detail?ids=' + songId, res => {
     album = res.songs[0].al
     blurPic += album.pic_str ? album.pic_str : album.pic;
@@ -42,7 +43,7 @@ $(() => {
     $name.text(res.songs[0].name)
     $author.text(res.songs[0].ar[0].name)
   })
-  $.getJSON(url + '/lyric?id=' + songId, data => {
+  $.get(url + '/lyric?id=' + songId, data => {
     console.log(data)
     NolyricState = (data.nolyric && data.uncollected)
 

@@ -1,11 +1,12 @@
 import $ from 'jquery'
 import createSong from './createSong'
+import loading from './loading'
 
 export default function (url) {
   let popularUrl = url + '/top/list?idx=1',
     updateTime
 
-  $.getJSON(popularUrl, data => {
+  $.get(popularUrl, data => {
     data = data.result
     updateTime = new Date(data.updateTime)
     console.log('++++++++=')
@@ -13,5 +14,6 @@ export default function (url) {
     for (let i = 0, length = 20; i<length; ++i) {
       $('.popular-list').append(createSong(data.tracks[i], i+1, true))
     }
-  })
+  }).done(loading('loading-popular'))
+
 }
