@@ -1,4 +1,5 @@
 .search-history {
+  display: none;
   .icon {
     width: 5vw;
     height: 5vw;
@@ -12,7 +13,7 @@
 
     transform: translateX(-8vw);
 
-    fill:#C9CACA;
+    fill: #C9CACA;
   }
   .icon-cross {
     transform: scaleX(0.96) translateY(10%);
@@ -37,5 +38,8 @@
     &::after {
       border-bottom: 1px solid $light-gray;
     }
+  }
+  &.active {
+    display: block;
   }
 }
