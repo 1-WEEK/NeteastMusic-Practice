@@ -1,5 +1,5 @@
 import $ from 'jquery'
 
 export default function (id) {
-  $('#'+id).fadeOut(500)
+  $('#'+id).delay(500).fadeOut(300)
 }

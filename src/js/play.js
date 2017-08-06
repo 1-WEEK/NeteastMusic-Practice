@@ -44,7 +44,6 @@ $(() => {
     $author.text(res.songs[0].ar[0].name)
   })
   $.get(url + '/lyric?id=' + songId, data => {
-    console.log(data)
     NolyricState = (data.nolyric && data.uncollected)
 
     song.onended = () => {
@@ -127,7 +126,6 @@ $(() => {
   }
 
   function parseTime(element) {
-    // console.log(element)
     let a = element.match(/(\d*):/)[1]
     if (a) {
       return (parseFloat(element.match(/:([^&]*)/)[1]) + parseFloat(a) * 60).toFixed(1)
