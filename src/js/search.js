@@ -14,7 +14,7 @@ export default function (url) {
 
   showSearchIndex()
 
-  $input.on('keyup change', e => {
+  $input.on('keyup', e => {
     if ($input.val()) {
       $close.addClass('show')
       $recommendSearch.addClass('active')
@@ -22,11 +22,14 @@ export default function (url) {
       $history.removeClass('active')
 
 
-      throttle(
-        loadSearchSuggest, {
-          api: url,
-          keywords: $input.val()
-        })
+      if (e.keyCode != 13) {
+        throttle(
+          loadSearchSuggest, {
+            api: url,
+            keywords: $input.val()
+          })
+      }
+
 
 
       if (e.keyCode == 13) {
@@ -64,7 +67,6 @@ export default function (url) {
       })
       $close.addClass('show')
       $input.val(e.currentTarget.getAttribute('data-name'))
-      console.log(e)
     }
   })
   $suggestItems.on('click', '.recommend-item', e => {
@@ -102,10 +104,4 @@ export default function (url) {
     $searchResult.removeClass('active').text('')
     $history.addClass('active')
   }
-  console.log(history.get())
-  // for (let i = 0; i < 21; i++) {
-  //   h.add('no. ' + i)
-  // }
-  // h.delete('no. 12')
-  // console.log(h.get())
 }

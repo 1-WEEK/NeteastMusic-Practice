@@ -8,10 +8,8 @@ export default function (conf) {
   $suggestItems.text('')
   $.get(conf.api + '/search/suggest?keywords=' + conf.keywords, data => {
     data = data.result.songs
-    console.log($suggestItems)
     data.forEach(element => {
       $suggestItems.append(createItem(element.name))
-      console.log(element)
     })
   }).done(() => {
     loading('loading-search')

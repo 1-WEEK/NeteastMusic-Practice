@@ -12,7 +12,6 @@ export default function (conf) {
   $history.removeClass('active')
 
   $.get(conf.url + '/search?type=1&keywords=' + conf.keywords + '&limit=' + conf.limit + '&offset=' + conf.offset, data => {
-    console.log(data)
     data.result.songs.forEach(song => {
       $searchResult.append(createSong(song))
     })

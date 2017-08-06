@@ -21,7 +21,6 @@ $(() => {
     playlistId = location.search.match(/\bid=([^&]*)/)[1]
 
   $.get(playlistDetail + playlistId, data => {
-    console.log(data)
     data = data.playlist
     $('title').text(data.name)
     $name.text(data.name)
@@ -37,7 +36,6 @@ $(() => {
     data.tags.forEach(tag => {
       $tags.append(createTag(tag))
     })
-    // console.log(data.tags)
     data.description = '简介：' + data.description
     data.description.split('\n').forEach(e => {
       $des.append(createP(e))

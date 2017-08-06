@@ -1,12 +1,9 @@
 export default {
   cache: new Set(),
   add: function (data) {
-    console.log('data='+data)
     this.cache = new Set(this.get())
     if (this.cache.has(data)) {
       this.cache.delete(data)
-      console.log('==')
-      console.log(this.cache)
     }
     if (this.cache.size >= 10) {
       this.cache = Array.from(this.cache)
@@ -14,7 +11,6 @@ export default {
       this.cache = new Set(this.cache)
     }
     this.cache.add(data)
-    console.log(this.cache)
     localStorage.setItem('history', JSON.stringify(Array.from(this.cache)))
   },
   delete: function (data) {
