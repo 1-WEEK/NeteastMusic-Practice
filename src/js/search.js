@@ -84,17 +84,20 @@ export default function (url) {
 
   function showSearchIndex() {
     $history.children('ul').text('')
-    history.get().forEach(e => {
-      $history.children('ul').append(`<li class="history-item borders" data-name="${e}">
+    let arr = history.get()
+    console.log(arr)
+    for(let i=arr.length-1; i>=0; --i) {
+
+      $history.children('ul').append(`<li class="history-item borders" data-name="${arr[i]}">
             <svg class="icon icon-time">
               <use xlink:href="#icon-time"></use>
             </svg>
-            ${e}
+            ${arr[i]}
             <svg class="icon icon-cross">
               <use xlink:href="#icon-cross"></use>
             </svg>
           </li> `)
-    })
+    }
     $('#loading-suggest').hide()
     $close.removeClass('show')
     $recommendSearch.removeClass('active')
