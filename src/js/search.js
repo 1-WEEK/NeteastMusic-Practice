@@ -21,7 +21,6 @@ export default function (url) {
       $searchResult.removeClass('active')
       $history.removeClass('active')
 
-
       if (e.keyCode != 13) {
         throttle(
           loadSearchSuggest, {
@@ -29,8 +28,6 @@ export default function (url) {
             keywords: $input.val()
           })
       }
-
-
 
       if (e.keyCode == 13) {
         loadSearchResult({
@@ -82,7 +79,7 @@ export default function (url) {
     clearTimeout(method.tId)
     method.tId = setTimeout(function () {
       method(context)
-    }, 1000);
+    }, 500);
   }
 
   function showSearchIndex() {
@@ -98,7 +95,7 @@ export default function (url) {
             </svg>
           </li> `)
     })
-    $('.loading').hide()
+    $('#loading-suggest').hide()
     $close.removeClass('show')
     $recommendSearch.removeClass('active')
     $searchResult.removeClass('active').text('')

@@ -1,8 +1,6 @@
 import $ from 'jquery'
-import loading from './loading'
 
 export default function (conf) {
-  $('#loading-search').show()
   let $suggestItems = $('.suggest-items')
 
   $suggestItems.text('')
@@ -11,8 +9,6 @@ export default function (conf) {
     data.forEach(element => {
       $suggestItems.append(createItem(element.name))
     })
-  }).done(() => {
-    loading('loading-search')
   })
 
   function createItem(name) {
