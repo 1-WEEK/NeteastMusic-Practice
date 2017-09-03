@@ -11,7 +11,7 @@ $(() => {
     recommendPlaylist = url + '/personalized'
 
   // recommend playlist
-  $.get(recommendPlaylist, data => {
+  $.getJSON(recommendPlaylist, data => {
     let $playlists = $('.playlists')
     data = data.result
 
@@ -47,7 +47,7 @@ $(() => {
   }).done(loading('loading-playlists'))
 
   // latest songs list
-  $.get(newSong, data => {
+  $.getJSON(newSong, data => {
     let $latestList = $('.latest-list')
     data = data.result
     data.forEach((e, i) => {

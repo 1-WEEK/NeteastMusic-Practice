@@ -11,7 +11,7 @@ export default function (conf) {
   $searchResult.addClass('active').text('')
   $history.removeClass('active')
 
-  $.get(conf.url + '/search?type=1&keywords=' + conf.keywords + '&limit=' + conf.limit + '&offset=' + conf.offset, data => {
+  $.getJSON(conf.url + '/search?type=1&keywords=' + conf.keywords + '&limit=' + conf.limit + '&offset=' + conf.offset, data => {
     data.result.songs.forEach(song => {
       $searchResult.append(createSong(song))
     })

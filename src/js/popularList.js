@@ -6,7 +6,7 @@ export default function (url) {
   let popularUrl = url + '/top/list?idx=1',
     updateTime
 
-  $.get(popularUrl, data => {
+  $.getJSON(popularUrl, data => {
     data = data.result
     updateTime = new Date(data.updateTime)
     $('.update-time').text(`更新日期：${updateTime.getMonth()+1} 月 ${updateTime.getDate()} 日`)

@@ -4,7 +4,7 @@ export default function (conf) {
   let $suggestItems = $('.suggest-items')
 
   $suggestItems.text('')
-  $.get(conf.api + '/search/suggest?keywords=' + conf.keywords, data => {
+  $.getJSON(conf.api + '/search/suggest?keywords=' + conf.keywords, data => {
     data = data.result.songs
     data.forEach(element => {
       $suggestItems.append(createItem(element.name))

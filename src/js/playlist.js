@@ -20,7 +20,7 @@ $(() => {
 
     playlistId = location.search.match(/\bid=([^&]*)/)[1]
 
-  $.get(playlistDetail + playlistId, data => {
+  $.getJSON(playlistDetail + playlistId, data => {
     data = data.playlist
     $('title').text(data.name)
     $name.text(data.name)

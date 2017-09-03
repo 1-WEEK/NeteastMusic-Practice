@@ -26,10 +26,10 @@ $(() => {
   let isPlaying = false;
 
   songId = location.search.match(/\bid=([^&]*)/)[1]
-  $.get(url + '/music/url?id=' + songId, res => {
+  $.getJSON(url + '/music/url?id=' + songId, res => {
     song.src = res.data[0].url
   }).done(loading('loading-play'))
-  $.get(url + '/song/detail?ids=' + songId, res => {
+  $.getJSON(url + '/song/detail?ids=' + songId, res => {
     album = res.songs[0].al
     blurPic += album.pic_str ? album.pic_str : album.pic;
 
@@ -43,7 +43,7 @@ $(() => {
     $name.text(res.songs[0].name)
     $author.text(res.songs[0].ar[0].name)
   })
-  $.get(url + '/lyric?id=' + songId, data => {
+  $.getJSON(url + '/lyric?id=' + songId, data => {
     NolyricState = (data.nolyric && data.uncollected)
 
     song.onended = () => {
