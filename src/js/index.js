@@ -6,7 +6,7 @@ import loadSearch from './search'
 import loading from './loading'
 
 $(() => {
-  let url = '//localhost/api',
+  let url = '/api',
     newSong = url + '/personalized/newsong',
     recommendPlaylist = url + '/personalized'
 

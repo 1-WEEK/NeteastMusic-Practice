@@ -3,7 +3,7 @@ import $ from 'jquery'
 import loading from './loading'
 
 $(() => {
-  let url = '//localhost/api',
+  let url = '/api',
     songId = '',
     album = {},
     blurPic = '//music.163.com/api/img/blur/',
