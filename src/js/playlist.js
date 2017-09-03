@@ -4,7 +4,7 @@ import createSong from './createSong'
 import loading from './loading'
 
 $(() => {
-  let url = '//localhost:2724',
+  let url = '//localhost/api',
     playlistDetail = url + '/playlist/detail?id=',
     playlistId = '',
     $bg = $('.list-header-bg'),
