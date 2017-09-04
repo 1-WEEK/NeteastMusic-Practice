@@ -25,7 +25,7 @@ $(() => {
   const $songs = $('.list-songs');
   let bgPic = '';
 
-  playlistId = location.search.match(/\bid=([^&]*)/)[1];
+  playlistId = window.location.search.match(/\bid=([^&]*)/)[1];
 
   $.getJSON(playlistDetail + playlistId, (propData) => {
     const data = propData.playlist;

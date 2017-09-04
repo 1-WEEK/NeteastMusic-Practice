@@ -46,7 +46,7 @@ $(() => {
     return 0;
   }
 
-  songId = location.search.match(/\bid=([^&]*)/)[1];
+  songId = window.location.search.match(/\bid=([^&]*)/)[1];
   $.getJSON(`${url}/music/url?id=${songId}`, (res) => {
     song.src = res.data[0].url;
   }).done(loading('loading-play'));
