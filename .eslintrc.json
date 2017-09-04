@@ -1,0 +1,20 @@
+{
+    "globals": {
+        "document": true,
+        "foo": true,
+        "window": true
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "prefer-destructuring": ["error", {
+            "array": false,
+            "object": true
+        }, {
+            "enforceForRenamedProperties": false
+        }]
+    },
+    "extends": "airbnb-base"
+}
